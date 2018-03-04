@@ -1,0 +1,21 @@
+<h1>Data Catalogue Bot</h1>
+
+
+
+<ng-container *ngFor="let message of messages | async">
+
+  <div class="message" [innerHTML]="message.content" 
+                       [ngClass]="{ 'from':message.sentBy === 'bot','to':   message.sentBy === 'user' }">
+    
+  </div>
+
+</ng-container>
+
+
+<label for="nameField">Your Message</label>
+
+
+<input [(ngModel)]="formValue" (keyup.enter)="sendMessage()" type="text"><br>
+
+<button (click)="sendMessage()">Send</button>
+
